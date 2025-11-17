@@ -9,17 +9,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
-    
+    <!-- Game of Life background styles -->
+    <style>
+      /* Fullscreen canvas behind content */
+  #gol-canvas { position: fixed; top:0; left:0; width:100vw; height:100vh; z-index:-1; background:#fff; display:block; transition: transform 0.3s ease; transform-origin:top left; }
+      /* Graceful fallback if reduced motion */
+      @media (prefers-reduced-motion: reduce) { #gol-canvas { display:none; } }
+  #gol-panel { position:fixed; bottom:12px; right:12px; z-index:10; font-size:12px; font-family:monospace; background:rgba(0,0,0,0.55); color:#f5f5f5; padding:10px 14px; border-radius:12px; backdrop-filter: blur(6px); box-shadow:0 4px 20px rgba(0,0,0,0.25); width:160px; }
+  #gol-panel h4 { margin:0 0 6px 0; font-size:12px; font-weight:600; letter-spacing:0.5px; }
+  #gol-stats { margin:0 0 8px 0; line-height:1.4; }
+  #gol-stats dt { font-weight:600; }
+  #gol-stats dd { margin:0 0 4px 0; text-align:right; }
+  #gol-buttons { display:flex; gap:6px; flex-wrap:wrap; }
+  .gol-btn { flex:0 0 30px; height:30px; border-radius:50%; border:none; display:flex; align-items:center; justify-content:center; cursor:pointer; background:#e0e0e0; color:#333; font-size:14px; box-shadow:0 2px 6px rgba(0,0,0,0.25); transition:background 0.2s ease, transform 0.2s ease; }
+  .gol-btn:hover { background:#fff; }
+  .gol-btn:active { transform:scale(0.92); }
+  .gol-btn[disabled] { opacity:0.35; cursor:default; }
+  @media (prefers-reduced-motion: reduce) { .gol-btn { transition:none; } }
+      /* 3D text effect */
+      .text-3d { position:relative; display:inline-block; font-weight:700; transform-style:preserve-3d; transition: transform 0.3s ease, text-shadow 0.3s ease; }
+      .text-3d[data-tilt-active="true"] { will-change: transform; }
+      .text-3d::after { content: attr(data-text); position:absolute; left:0; top:0; transform: translateZ(-16px); color:#c0c0c0; filter:blur(2px); opacity:0.4; pointer-events:none; }
+      .text-3d-shadow { text-shadow: 0 2px 2px rgba(0,0,0,0.12), 0 6px 12px rgba(0,0,0,0.10); }
+      @media (prefers-reduced-motion: reduce) { .text-3d { transition:none; } }
+    </style>
   </head>
 
   <body>
-    <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+  <table id="main-content" style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
       <tr style="padding:0px">
         <td style="padding:0px">
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
             <tr style="padding:0px">
               <td style="padding:2.5%;width:63%;vertical-align:middle">
-                <p class="name" style="text-align: center;">
+                <p class="name text-3d text-3d-shadow" style="text-align: center;" data-text="Bhuvan Sachdeva">
                   Bhuvan Sachdeva
                 </p>
                 <p>
@@ -264,5 +287,97 @@
         </td>
       </tr>
     </table>
+
+    <!-- Game of Life canvas element -->
+    <canvas id="gol-canvas" aria-hidden="true"></canvas>
+    <div id="gol-panel" aria-label="Game of Life controls">
+      <dl id="gol-stats">
+        <dt>Population:</dt><dd id="gol-pop">0</dd>
+        <dt>Generation:</dt><dd id="gol-gen">0</dd>
+        <dt>Zoom:</dt><dd id="gol-zoom">1.0x</dd>
+      </dl>
+      <div id="gol-buttons">
+        <button class="gol-btn" id="gol-zoom-in" title="Zoom In" aria-label="Zoom In">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </button>
+        <button class="gol-btn" id="gol-zoom-out" title="Zoom Out" aria-label="Zoom Out">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><line x1="8" y1="11" x2="14" y2="11"></line><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </button>
+        <button class="gol-btn" id="gol-play" title="Play/Pause" aria-label="Play" data-state="playing">
+          <svg class="icon-play" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+          <svg class="icon-pause" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:none"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>
+        </button>
+        <button class="gol-btn" id="gol-step" title="Step one generation" aria-label="Step">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="6" y1="12" x2="18" y2="12"></line><polyline points="12 6 18 12 12 18"></polyline></svg>
+        </button>
+        <button class="gol-btn" id="gol-reseed" title="Reseed" aria-label="Reseed">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 0 0 14.85-3.36L23 13"></path><path d="M20.49 9A9 9 0 0 0 5.64 12.36L1 11"></path></svg>
+        </button>
+        <button class="gol-btn" id="gol-resetzoom" title="Reset Zoom" aria-label="Reset Zoom">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="3"></circle></svg>
+        </button>
+      </div>
+    </div>
+    <script src="gol.js" defer></script>
+    <script defer>
+      (function(){
+  const zoomInBtn = document.getElementById('gol-zoom-in');
+  const zoomOutBtn = document.getElementById('gol-zoom-out');
+  const playBtn = document.getElementById('gol-play');
+    const stepBtn = document.getElementById('gol-step');
+    const reseedBtn = document.getElementById('gol-reseed');
+    const resetZoomBtn = document.getElementById('gol-resetzoom');
+        let paused = false;
+        // Force play in case previous visibility event paused it before inline script runs
+        if (window.GOL && window.GOL.play) { window.GOL.play(); }
+        window.GOL && window.GOL.forceStart && window.GOL.forceStart(); // force start
+        // Play/Pause toggle - swap SVG visibility
+        const iconPlay = playBtn.querySelector('.icon-play');
+        const iconPause = playBtn.querySelector('.icon-pause');
+        playBtn.addEventListener('click', () => {
+          if (paused) {
+            window.GOL.play();
+            paused = false;
+            playBtn.setAttribute('aria-label','Pause');
+            if(iconPlay) iconPlay.style.display='none';
+            if(iconPause) iconPause.style.display='inline';
+          } else {
+            window.GOL.pause();
+            paused = true;
+            playBtn.setAttribute('aria-label','Play');
+            if(iconPlay) iconPlay.style.display='inline';
+            if(iconPause) iconPause.style.display='none';
+          }
+        });
+  zoomInBtn.addEventListener('click', () => { window.GOL.zoomIn(); });
+  zoomOutBtn.addEventListener('click', () => { window.GOL.zoomOut(); });
+        stepBtn.addEventListener('click', () => { window.GOL.stepOnce(); });
+        reseedBtn.addEventListener('click', () => { window.GOL.reseed(); });
+        resetZoomBtn.addEventListener('click', () => { window.GOL.resetZoom(); });
+        // Hide controls on small screens
+  if (window.innerWidth < 600) { document.getElementById('gol-panel').style.display='none'; }
+
+        // 3D tilt effect for name
+        const nameEl = document.querySelector('.text-3d');
+        const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (nameEl && !prefersReduced) {
+          nameEl.dataset.tiltActive = 'true';
+          const maxTilt = 10; // degrees
+          function handleMove(e){
+            const rect = nameEl.getBoundingClientRect();
+            const x = (e.clientX - rect.left) / rect.width; // 0..1
+            const y = (e.clientY - rect.top) / rect.height; // 0..1
+            const tiltX = (y - 0.5) * maxTilt; // invert for natural tilt
+            const tiltY = (x - 0.5) * maxTilt;
+            nameEl.style.transform = `rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
+          }
+          function resetTilt(){ nameEl.style.transform = 'rotateX(0deg) rotateY(0deg)'; }
+          nameEl.addEventListener('mousemove', handleMove);
+          nameEl.addEventListener('mouseleave', resetTilt);
+          nameEl.addEventListener('touchstart', (e)=>{ if(e.touches[0]) { handleMove(e.touches[0]); } });
+          nameEl.addEventListener('touchend', resetTilt);
+        }
+      })();
+    </script>
   </body>
 </html>
