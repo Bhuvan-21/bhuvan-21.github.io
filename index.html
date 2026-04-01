@@ -2,285 +2,166 @@
 <html lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
     <title>Bhuvan Sachdeva</title>
-
     <meta name="author" content="Bhuvan Sachdeva">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <meta name="google-site-verification" content="ce9gPNCKdp3xchlWfo3Unsd8j4MYMaeHpjmgMahE4kA" />
   </head>
 
   <body>
-    <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-      <tr style="padding:0px">
-        <td style="padding:0px">
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-            <tr style="padding:0px">
-              <td style="padding:2.5%;width:63%;vertical-align:middle">
-                <p class="name" style="text-align: center;">
-                  Bhuvan Sachdeva
-                </p>
-                <p>
-                  I'm a research fellow at <a href="https://sankaraeye.com/">Sankara Eye Hospital</a> and a visiting researcher at <a href="https://www.microsoft.com/en-us/research/lab/microsoft-research-india/">Microsoft Research</a>, where I have had the pleasure to work with <a href="https://mohitjaindr.github.io/">Dr. Mohit Jain</a>, 
-                  <a href="https://people.iith.ac.in/vineethnb/">Dr. Vineeth N Balasubramanian</a>, <a href="https://www.uni-bonn.de/en/research-and-teaching/research-profile/transdisciplinary-research-areas/tra-3-life-and-health/members-directory/thomas-schultz">Prof. Thomas Schultz</a>, 
-                  <a href="https://www.linkedin.com/in/kaushikmurali/">Dr Kaushik Murali</a> and <a href="https://www.linkedin.com/in/maximilian-w-m-wintergerst-63a57219a/?originalSubdomain=ch">Dr Maximilian W.M. Wintergerst</a>. 
-              </p>
-              <p>
-                I work at the intersection of ML, vision, and healthcare. Broadly, I have worked in 1) understanding the dynamics of task-transfer in vision-language models, 2) improving surgical workflow analysis and enabling automated complication detection in cataract surgery and 3) development of expert-in-the-loop chatbots for patients and healthcare workers. <br>
-                <!-- I am currently looking for Ph.D. opportunities; if you think there's a good fit, I'd love to connect. Please reach out via <a href="mailto:sachdeva.bhuvan21@gmail.com">email</a>! -->
-              </p>
+    <button class="theme-toggle" onclick="toggleTheme()" id="theme-btn"></button>
+    <script>
+      const btn = document.getElementById('theme-btn');
+      const saved = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const isDark = saved ? saved === 'dark' : prefersDark;
+      document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
+      btn.textContent = isDark ? '☀️' : '🌙';
+      function toggleTheme() {
+        const dark = document.documentElement.getAttribute('data-theme') === 'dark';
+        document.documentElement.setAttribute('data-theme', dark ? 'light' : 'dark');
+        btn.textContent = dark ? '🌙' : '☀️';
+        localStorage.setItem('theme', dark ? 'light' : 'dark');
+      }
+    </script>
+    <div class="container">
 
-                <p style="text-align:center">
-                  <a href="mailto:sachdeva.bhuvan21@gmail.com">Email</a> &nbsp;/&nbsp;
-                  <a href="data/BhuvanSachdeva-CV.pdf">CV</a> &nbsp;/&nbsp;
-                  <a href="https://scholar.google.com/citations?user=4wp1xtwAAAAJ&hl=en">Scholar</a> &nbsp;/&nbsp;
-                  <a href="https://x.com/SachdevaBhuvan">Twitter</a> &nbsp;/&nbsp;
-                  <a href="https://github.com/Bhuvan-21">Github</a>
-                </p>
-              </td>
-              <td style="padding:2.5%;width:37%;max-width:37%">
-                <a href="images/BhuvanSachdeva.jpg"><img style="width:100%;max-width:100%;object-fit: cover; border-radius: 50%;" alt="profile photo" src="images/BhuvanSachdeva.jpg" class="hoverZoomLink"></a>
-              </td>
-            </tr>
-          </tbody></table>
+      <!-- Profile Section -->
+      <section class="profile-section">
+        <div class="profile-text">
+          <h1 class="name">Bhuvan Sachdeva</h1>
+          <p>
+            I'm a research fellow at <a href="https://sankaraeye.com/">Sankara Eye Hospital</a> and <a href="https://www.microsoft.com/en-us/research/lab/microsoft-research-india/">Microsoft Research India</a>, working with <a href="https://mohitjaindr.github.io/">Dr. Mohit Jain</a>,
+            <a href="https://people.iith.ac.in/vineethnb/">Dr. Vineeth N B</a>, and <a href="https://www.uni-bonn.de/en/research-and-teaching/research-profile/transdisciplinary-research-areas/tra-3-life-and-health/members-directory/thomas-schultz">Prof. Thomas Schultz</a>.
+          </p>
+          <p>
+            My research spans computer vision and its application to healthcare. I study task-transfer dynamics in vision-language models, and work on surgical scene understanding in cataract surgery. Earlier, I worked on building expert-in-the-loop LLM chatbots for patients and community health workers.
+          </p>
+          <p>
+            I received my B.Tech. in Computer Science from Delhi Technological University (DTU) in 2023. During my undergrad, I interned at <a href="https://www.amazon.science/">Prime Video, Amazon</a> and <a href="https://kroop.ai/">Kroop AI</a>.
+          </p>
+          <div class="links">
+            <a href="mailto:sachdeva.bhuvan21@gmail.com">Email</a>
+            <span class="sep">/</span>
+            <a href="data/BhuvanSachdeva-CV.pdf">CV</a>
+            <span class="sep">/</span>
+            <a href="https://scholar.google.com/citations?user=4wp1xtwAAAAJ&hl=en">Scholar</a>
+            <span class="sep">/</span>
+            <a href="https://x.com/SachdevaBhuvan">Twitter</a>
+            <span class="sep">/</span>
+            <a href="https://github.com/Bhuvan-21">GitHub</a>
+          </div>
+        </div>
+        <div class="profile-photo">
+          <img src="images/BhuvanSachdeva.jpg" alt="Bhuvan Sachdeva">
+        </div>
+      </section>
 
+      <!-- News Section -->
+      <section class="content-section">
+        <h2>News</h2>
+        <ul class="news-list">
+          <li>
+            <span class="news-date">Feb 2026</span>
+            <span class="news-text"><a href="https://aka.ms/task-transfer-vlms/">Understanding Task Transfer in Vision-Language Models</a> accepted to <strong>CVPR 2026</strong>!</span>
+          </li>
+          <li>
+            <span class="news-date">Sep 2025</span>
+            <span class="news-text">Presented <a href="https://arxiv.org/abs/2411.16794">Phase-Informed Tool Segmentation for Manual Small-Incision Cataract Surgery</a> at <strong>MICCAI 2025</strong> and hosted the <strong>SICS-155 Phase Prediction Challenge</strong>.</span>
+          </li>
+          <li>
+            <span class="news-date">Sep 2025</span>
+            <span class="news-text"><a href="https://aka.ms/task-transfer-vlms/">Understanding Task Transfer in Vision-Language Models</a> accepted to the <strong>Unireps Workshop @ NeurIPS 2025</strong>.</span>
+          </li>
+          <li>
+            <span class="news-date">June 2025</span>
+            <span class="news-text"><a href="https://arxiv.org/abs/2411.16794">Phase-Informed Tool Segmentation for Manual Small-Incision Cataract Surgery</a> accepted to <strong>MICCAI 2025</strong>!</span>
+          </li>
+        </ul>
+      </section>
 
-           I received my Bachelors of Technology in Computer Science from Delhi Technological University (DTU) in 2023. During my undergrad, I worked at <a href="https://www.amazon.science/">Prime Video, Amazon</a> as an Applied Scientist Intern and <a href="https://kroop.ai/">Kroop AI</a> as Research Intern.
+      <!-- Selected Papers Section -->
+      <section class="content-section">
+        <h2>Selected Papers <span class="section-note">(<a href="publications.html">full list</a>)</span></h2>
 
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-              <tr>
-              <td style="padding:16px 0px;width:100%;vertical-align:middle">
-                <h2>Research</h2>
-                <p>
-                  I'm interested in enhancing generalization and out-of-domain performance in foundation models through knowledge transfer across tasks and data-efficient adaptation. I am  also passionate about applying machine learning and computer vision techniques to address challenges in healthcare.
-                  <!-- Some papers are <span class="highlight">highlighted</span>. -->
-                </p>
-              </td>
-            </tr>
-          </tbody></table>
-          <table style="width:100%;border:0px;border-spacing:0px 10px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-          <!-- bgcolor="#ffffd0" -->
-          <tr>
-            <td style="padding:16px;width:20%;vertical-align:middle">
-              <a href="images/TaskTransfer.png"><img style="width:100%;max-width:100%;height:100%" alt="TaskTransfer" src="images/TaskTransfer.png" class="hoverZoomLink"></a>
-            </td>
-            <td style="padding:8px;width:80%;vertical-align:middle">
-              <a href="">
-                <span class="papertitle">Understanding Task Transfer in Vision-Language Models</span>
-              </a>
-              <br>
-              <strong>Bhuvan Sachdeva*</strong>, Karan Uppal*, Abhinav Java*, Vineeth N. Balasubramanian
-              <br>
-              <em>CVPR'26 | Unireps Workshop @ Neurips'25 </em>
-              <br>
-              <a href="https://aka.ms/task-transfer-vlms/">project</a> / <a href="https://arxiv.org/abs/2511.18787">arxiv</a>
-              <p>In this work, we investigate how finetuning on one task affects zero-shot performance on others. We finetune the Qwen-2.5-VL model family (3B, 7B, and 32B) across 13 perception tasks from the BLINK Benchmark. We introduce the Perfection Gap Factor (PGF) to better characterize task-to-task transfer. Our findings reveal intrinsic task transfer patterns and further show the role of model size in shaping these shared representations. Finally, we leverage these task interactions to identify effective proxy datasets when target-task data is unavailable, demonstrating the practical utility of our framework.</p>
-            </td>
-          </tr>
+        <div class="paper-card highlight-paper">
+          <div class="paper-thumb">
+            <img src="images/TaskTransfer.png" alt="Task Transfer">
+          </div>
+          <div class="paper-info">
+            <div class="venue-badge cvpr">CVPR 2026</div>
+            <a class="paper-title" href="https://aka.ms/task-transfer-vlms/">Understanding Task Transfer in Vision-Language Models</a>
+            <p class="paper-authors"><strong>Bhuvan Sachdeva*</strong>, Karan Uppal*, Abhinav Java*, Vineeth N. Balasubramanian</p>
+            <p class="paper-desc">We investigate how finetuning on one task affects zero-shot performance on others across the Qwen-2.5-VL model family. We introduce the Perfection Gap Factor (PGF) to characterize task-to-task transfer and leverage task interactions to identify effective proxy datasets.</p>
+            <div class="paper-links">
+              <a href="https://aka.ms/task-transfer-vlms/">project</a>
+              <span class="sep">/</span>
+              <a href="https://arxiv.org/abs/2511.18787">arXiv</a>
+            </div>
+          </div>
+        </div>
 
-          <tr>
-            <td style="padding:16px;width:20%;vertical-align:middle">
-              <a href="images/CataComp.jpg"><img style="width:100%;max-width:100%;height:100%" alt="CataractCompDetect" src="images/CataComp.jpg" class="hoverZoomLink"></a>
-            </td>
-            <td style="padding:8px;width:80%;vertical-align:middle">
-              <a href="">
-                <span class="papertitle">CataractCompDetect: Intraoperative Complication Detection in Cataract Surgery</span>
-              </a>
-              <br>
-              <strong>Bhuvan Sachdeva</strong>, Sneha Kumari, Rudransh Agarwal, Shalaka Kumaraswamy, Niharika singri prasad, Simon Mueller, Raphael Lechtenboehmer, Maximilian W. M. Wintergerst, Thomas Schultz, Kaushik Murali, Mohit Jain
-              <br>
-              <em>Under submission </em>
-              <br>
-              <a href="https://arxiv.org/pdf/2511.18968">arxiv</a>
-              <p>We propose <em>CataractCompDetect</em>, the first framework for intra-operative complication detection in cataract surgery. Using SAM-2 for object tracking and a complication-specific risk-scoring module, the system detects high-risk segments for VLM-based reasoning. To enable the evaluation of our framework, we also release <em>CataComp</em>, the first dataset annotated for three intra-operative complications (iris prolapse, PCR, and vitreous loss) in cataract surgery.</p>
-            </td>
-          </tr>
+        <div class="paper-card highlight-paper">
+          <div class="paper-thumb">
+            <img src="images/CataComp.jpg" alt="CataractCompDetect">
+          </div>
+          <div class="paper-info">
+            <div class="venue-badge submission">Under Submission</div>
+            <a class="paper-title" href="https://arxiv.org/pdf/2511.18968">CataractCompDetect: Intraoperative Complication Detection in Cataract Surgery</a>
+            <p class="paper-authors"><strong>Bhuvan Sachdeva</strong>, Sneha Kumari, Rudransh Agarwal, Shalaka Kumaraswamy, Niharika Singri Prasad, Simon Mueller, Raphael Lechtenboehmer, Maximilian W. M. Wintergerst, Thomas Schultz, Kaushik Murali, Mohit Jain</p>
+            <p class="paper-desc">We propose the first framework for intra-operative complication detection in cataract surgery. Using SAM-2 for object tracking and a complication-specific risk-scoring module, the system detects high-risk segments for VLM-based reasoning. We also release CataComp, the first dataset annotated for three intra-operative complications.</p>
+            <div class="paper-links">
+              <a href="https://arxiv.org/pdf/2511.18968">arXiv</a>
+            </div>
+          </div>
+        </div>
 
-          <tr>
-            <td style="padding:16px;width:20%;vertical-align:middle">
-              <a href="images/ToolSeg.png"><img style="width:100%;max-width:100%;height:100%" alt="ToolSeg" src="images/ToolSeg.png" class="hoverZoomLink"></a>
-            </td>
-            <td style="padding:8px;width:80%;vertical-align:middle">
-              <a href="https://arxiv.org/pdf/2411.16794">
-                <span class="papertitle">Phase-Informed Tool Segmentation for Manual Small-Incision Cataract Surgery</span>
-              </a>
-              <br>
-              <strong>Bhuvan Sachdeva*</strong>, Naren Akash*, Tajamul Ashraf, Simon Müller, Thomas Schultz, Maximilian W.M. Wintergerst, Niharika Singri Prasad, Kaushik Murali, Mohit Jain
-              <br>
-              <em>MICCAI'25</em>
-              <br>
-              <a href="https://github.com/Sri-Kanchi-Kamakoti-Medical-Trust/ToolSeg">github</a> / <a href="https://arxiv.org/abs/2411.16794">arxiv</a>
-              <p>We present the first comprehensive dataset for MSICS cataract surgery tool segmentation and introduce a novel phase-informed tool segmentation method, ToolSeg, which leverages surgical phases to enhance tool segmentation accuracy.</p>
-            </td>
-          </tr>
+        <div class="paper-card highlight-paper">
+          <div class="paper-thumb">
+            <img src="images/ToolSeg.png" alt="ToolSeg">
+          </div>
+          <div class="paper-info">
+            <div class="venue-badge miccai">MICCAI 2025</div>
+            <a class="paper-title" href="https://arxiv.org/abs/2411.16794">Phase-Informed Tool Segmentation for Manual Small-Incision Cataract Surgery</a>
+            <p class="paper-authors"><strong>Bhuvan Sachdeva*</strong>, Naren Akash*, Tajamul Ashraf, Simon Müller, Thomas Schultz, Maximilian W.M. Wintergerst, Niharika Singri Prasad, Kaushik Murali, Mohit Jain</p>
+            <p class="paper-desc">We present the first comprehensive dataset for MSICS cataract surgery tool segmentation and introduce ToolSeg, a phase-informed segmentation method that leverages surgical phases to enhance tool segmentation accuracy.</p>
+            <div class="paper-links">
+              <a href="https://github.com/Sri-Kanchi-Kamakoti-Medical-Trust/ToolSeg">GitHub</a>
+              <span class="sep">/</span>
+              <a href="https://arxiv.org/abs/2411.16794">arXiv</a>
+            </div>
+          </div>
+        </div>
 
-          <tr>
-            <td style="padding:16px;width:20%;vertical-align:middle">
-              <a href="images/Catbot.png"><img style="width:100%;max-width:100%;height:100%" alt="Catbot" src="images/Catbot.png" class="hoverZoomLink"></a>
-            </td>
-            <td style="padding:8px;width:80%;vertical-align:middle">
-              <a href="https://arxiv.org/pdf/2409.10354">
-                <span class="papertitle">Learnings from a Large-Scale Deployment of an LLM-Powered Expert-in-the-Loop Healthcare Chatbot</span>
-              </a>
-              <br>
-              <strong>Bhuvan Sachdeva*</strong>, Pragnya Ramjee*, Geeta Fulari, Kaushik Murali, Mohit Jain
-              <br>
-              <em>European Journal of Ophthalmology (EJO)'25</em>
-              <br>
-              <a href="https://github.com/Microsoft/byoeb">github</a> / <a href="https://arxiv.org/pdf/2409.10354">arxiv</a>
-                <p>We present findings from a 24-week large-scale deployment of CataractBot involving 318 patients and attendants who sent nearly 2,000 messages. Our analysis revealed that medical questions significantly outnumbered logistical ones, with experts rating 84.52% of medical answers as accurate and negligible hallucinations. As the knowledge base expanded with expert corrections, system performance improved by 19.02%, reducing expert workload. These insights provide valuable guidance for designing future LLM-powered healthcare chatbots.</p>
-            </td>
-          </tr>
+        <div class="paper-card highlight-paper">
+          <div class="paper-thumb">
+            <img src="images/Catbot.png" alt="CataractBot">
+          </div>
+          <div class="paper-info">
+            <div class="venue-badge acm">UbiComp 2025</div>
+            <a class="paper-title" href="https://dl.acm.org/doi/pdf/10.1145/3729479">CataractBot: an LLM-powered expert-in-the-loop chatbot for cataract patients</a>
+            <p class="paper-authors">Pragnya Ramjee*, <strong>Bhuvan Sachdeva*</strong>, Satvik Golechha, Shreyas Kulkarni, Geeta Fulari, Kaushik Murali, Mohit Jain</p>
+            <p class="paper-desc">We developed CataractBot, an LLM-powered chatbot answering cataract surgery questions via a curated knowledge base with expert-verified responses, supporting multimodal and multilingual inputs.</p>
+            <div class="paper-links">
+              <a href="https://github.com/Microsoft/byoeb">GitHub</a>
+              <span class="sep">/</span>
+              <a href="https://www.microsoft.com/en-us/research/publication/cataractbot-an-llm-powered-expert-in-the-loop-chatbot-for-cataract-patients/">project</a>
+              <span class="sep">/</span>
+              <a href="https://arxiv.org/abs/2402.04620">arXiv</a>
+            </div>
+          </div>
+        </div>
+      </section>
 
-          <tr>
-            <td style="padding:16px;width:20%;vertical-align:middle">
-              <a href="images/Catbot.png"><img style="width:100%;max-width:100%;height:100%" alt="Catbot" src="images/Catbot.png" class="hoverZoomLink"></a>
-            </td>
-            <td style="padding:8px;width:80%;vertical-align:middle">
-              <a href="https://dl.acm.org/doi/pdf/10.1145/3729479">
-                <span class="papertitle">CataractBot: an LLM-powered expert-in-the-loop chatbot for cataract patients</span>
-              </a>
-              <br>
-              Pragnya Ramjee*, <strong>Bhuvan Sachdeva*</strong>, Satvik Golechha, Shreyas Kulkarni, Geeta Fulari, Kaushik Murali, Mohit Jain
-              <br>
-              <em>ACM IMWUT/ UbiComp'25</em>
-              <br>
-              <a href="https://github.com/Microsoft/byoeb">github</a> / <a href="https://www.microsoft.com/en-us/research/publication/cataractbot-an-llm-powered-expert-in-the-loop-chatbot-for-cataract-patients/?msockid=3ae3549b23d36bce19e9429d22b16a26">project</a> / <a href="https://arxiv.org/abs/2402.04620">arxiv</a>
-                <p>We developed CataractBot, an LLM-powered chatbot that answers cataract surgery related questions by querying a curated knowledge base and providing expert-verified responses. The system offers multimodal and multilingual capabilities to address the information gap between patients and healthcare providers. In our deployment study with 49 patients and attendants, 4 doctors, and 2 patient coordinators, CataractBot demonstrated potential in providing reliable, accessible information about cataract surgery.</p>
-            </td>
-          </tr>
+      <!-- Footer -->
+      <footer>
+        <p>Website adapted from <a href="https://jonbarron.info/">Jon Barron</a>.</p>
+      </footer>
 
-          <tr>
-            <td style="padding:16px;width:20%;vertical-align:middle">
-              <a href="images/PhaseRecog.png"><img style="width:100%;max-width:100%;height:100%" alt="PhaseRecog" src="images/PhaseRecog.png" class="hoverZoomLink"></a>
-            </td>
-            <td style="padding:8px;width:80%;vertical-align:middle">
-              <a href="https://www.nature.com/articles/s41598-025-00303-z">
-                <span class="papertitle">Phase recognition in manual Small-Incision cataract surgery with MS-TCN++ on the novel SICS-105 dataset</span>
-              </a>
-              <br>
-              Simon Müller, <strong>Bhuvan Sachdeva</strong>, Singri Niharika Prasad, Raphael Lechtenboehmer, Frank G Holz, Robert P Finger, Kaushik Murali, Mohit Jain, Maximilian WM Wintergerst, Thomas Schultz
-              <br>
-              <em>Nature Scientific Reports'25</em>
-              <br>
-              <!-- <a></a> -->
-              <p>This study introduces the first SICS video dataset (SICS-105) and evaluates deep learning-based surgical phase recognition using the MS-TCN++ architecture. We compare performance between SICS and phacoemulsification procedures, showing that while phase recognition achieves 85.56% accuracy for SICS, it performs better on the standard phacoemulsification dataset (89.97%).</p>
-            </td>
-          </tr>
-
-          <tr>
-            <td style="padding:16px;width:20%;vertical-align:middle">
-              <a href="images/AshaBot.png"><img style="width:100%;max-width:100%;height:100%" alt="AshaBot" src="images/AshaBot.png" class="hoverZoomLink"></a>
-            </td>
-            <td style="padding:8px;width:80%;vertical-align:middle">
-              <a href="https://dl.acm.org/doi/pdf/10.1145/3706598.3713680">
-                <span class="papertitle">ASHABot: an LLM-powered chatbot to support the informational needs of community health workers</span>
-              </a>
-              <br>
-              Pragnya Ramjee, Mehak Chhokar, <strong>Bhuvan Sachdeva</strong>, Mahendra Meena, Hamid Abdullah, Aditya Vashistha, Ruchit Nagar, Mohit Jain
-              <br>
-              <em>CHI'24</em>
-              <br>
-              <a href="https://github.com/KhushiBaby/byoeb">github</a> / <a href="https://www.microsoft.com/en-us/research/publication/ashabot-an-llm-powered-chatbot-to-support-the-informational-needs-of-community-health-workers/?msockid=3ae3549b23d36bce19e9429d22b16a26">project</a> / <a href="https://arxiv.org/abs/2409.10913">arxiv</a>
-                <p>In this paper, we introduce ASHABot, an LLM-powered WhatsApp chatbot with experts-in-the-loop designed to support community health workers (CHWs) in India. Our study found that ASHABot provided CHWs with a private channel for asking basic and sensitive questions they hesitated to ask supervisors, while establishing itself as a trusted information source. Supervisors contributed knowledge to the system but expressed concerns about workload and accountability.</p>
-            </td>
-          </tr>
-
- 
-         </tbody></table>
-
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;padding-top:24px;padding-bottom:24px;">
-          <tbody>
-            <tr>
-              <td style="padding:16px">
-                <h2>Work Experience</h2>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-            <tbody>
-              <tr>
-                <td style="padding:16px;width:10%;vertical-align:middle;text-align: center;">
-                  <img src="images/sankara-logo.png" style="vertical-align:middle" height="40">
-                  <img src="images/msft-logo.png" style="vertical-align:middle" height="40">
-                </td> 
-                <td style="padding:16px;vertical-align:middle">
-                  <a href="https://sankaraeye.com/"><b>Sankara Eye Hospital</b></a> &amp;
-                  <a href="https://www.microsoft.com/en-us/research/lab/microsoft-research-india/"><b>Microsoft Research, India</b></a></td>
-                </td> 
-                <td style="padding:16px;vertical-align:middle">
-                  Research Fellow
-                </td> 
-                <td style="padding:16px;vertical-align:middle">
-                  (August 2023 - Present)
-                </td> 
-              </tr>
-
-              <tr>
-                <td style="padding:16px;width:10%;vertical-align:middle;text-align: center;">
-                  <img src="images/kroopai-logo.png" style="vertical-align:middle" height="40">
-                </td> 
-                <td style="padding:16px;vertical-align:middle">
-                  <a href="https://kroop.ai/"><b>Kroop AI</b></a></td>
-                </td> 
-                <td style="padding:16px;vertical-align:middle">
-                  Research Intern
-                </td> 
-                <td style="padding:16px;vertical-align:middle">
-                  (Sept 2022 - Mar 2023)
-                </td> 
-              </tr>
-
-              <tr>
-                <td style="padding:16px;width:10%;vertical-align:middle;text-align: center;">
-                  <img src="images/amazon-logo.jpg" style="vertical-align:middle" height="40">
-                </td> 
-                <td style="padding:16px;vertical-align:middle">
-                  <a href="https://www.amazon.science/"><b>Prime Video, Amazon</b></a></td>
-                </td> 
-                <td style="padding:16px;vertical-align:middle">
-                  Applied Scientist Intern
-                </td> 
-                <td style="padding:16px;vertical-align:middle">
-                  (May 2022 - July 2022)
-                </td> 
-              </tr>
-
-              <tr>
-                <td style="padding:16px;width:10%;vertical-align:middle;text-align: center;">
-                  <img src="images/kroopai-logo.png" style="vertical-align:middle" height="40">
-                </td> 
-                <td style="padding:16px;vertical-align:middle">
-                  <a href="https://kroop.ai/"><b>Kroop AI</b></a></td>
-                </td> 
-                <td style="padding:16px;vertical-align:middle">
-                  Research Intern
-                </td> 
-                <td style="padding:16px;vertical-align:middle">
-                  (June 2021 - Apr 2022)
-                </td> 
-              </tr>
-
-          </tbody>  
-        </table>
-            
-          
-					
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-            <tr>
-              <td style="padding:0px">
-                <br>
-                <p style="text-align:right;font-size:small;">
-                  Website adapted from <a href="https://jonbarron.info/">Jon Barron's website</a>.
-                </p>
-              </td>
-            </tr>
-          </tbody></table>
-        </td>
-      </tr>
-    </table>
+    </div>
   </body>
 </html>

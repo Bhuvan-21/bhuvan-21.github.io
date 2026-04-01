@@ -1,0 +1,158 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Publications – Bhuvan Sachdeva</title>
+    <meta name="author" content="Bhuvan Sachdeva">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+  </head>
+
+  <body>
+    <button class="theme-toggle" onclick="toggleTheme()" id="theme-btn"></button>
+    <script>
+      const btn = document.getElementById('theme-btn');
+      const saved = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const isDark = saved ? saved === 'dark' : prefersDark;
+      document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
+      btn.textContent = isDark ? '☀️' : '🌙';
+      function toggleTheme() {
+        const dark = document.documentElement.getAttribute('data-theme') === 'dark';
+        document.documentElement.setAttribute('data-theme', dark ? 'light' : 'dark');
+        btn.textContent = dark ? '🌙' : '☀️';
+        localStorage.setItem('theme', dark ? 'light' : 'dark');
+      }
+    </script>
+    <div class="container">
+
+      <section class="content-section">
+        <h2 style="margin-bottom:4px;">Publications</h2>
+        <p style="font-size:13px;color:#888;margin-bottom:20px;"><a href="index.html">← Back to home</a></p>
+
+        <div class="paper-card">
+          <div class="paper-thumb">
+            <img src="images/TaskTransfer.png" alt="TaskTransfer">
+          </div>
+          <div class="paper-info">
+            <div class="venue-badge cvpr">CVPR 2026</div>
+            <a class="paper-title" href="https://aka.ms/task-transfer-vlms/">Understanding Task Transfer in Vision-Language Models</a>
+            <p class="paper-authors"><strong>Bhuvan Sachdeva*</strong>, Karan Uppal*, Abhinav Java*, Vineeth N. Balasubramanian</p>
+            <p class="paper-venue">CVPR 2026 &nbsp;|&nbsp; Unireps Workshop @ NeurIPS 2025</p>
+            <div class="paper-links">
+              <a href="https://aka.ms/task-transfer-vlms/">project</a>
+              <span class="sep">/</span>
+              <a href="https://arxiv.org/abs/2511.18787">arXiv</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="paper-card">
+          <div class="paper-thumb">
+            <img src="images/ToolSeg.png" alt="ToolSeg">
+          </div>
+          <div class="paper-info">
+            <div class="venue-badge miccai">MICCAI 2025</div>
+            <a class="paper-title" href="https://arxiv.org/abs/2411.16794">Phase-Informed Tool Segmentation for Manual Small-Incision Cataract Surgery</a>
+            <p class="paper-authors"><strong>Bhuvan Sachdeva*</strong>, Naren Akash*, Tajamul Ashraf, Simon Müller, Thomas Schultz, Maximilian W.M. Wintergerst, Niharika Singri Prasad, Kaushik Murali, Mohit Jain</p>
+            <p class="paper-venue">MICCAI 2025</p>
+            <div class="paper-links">
+              <a href="https://github.com/Sri-Kanchi-Kamakoti-Medical-Trust/ToolSeg">GitHub</a>
+              <span class="sep">/</span>
+              <a href="https://arxiv.org/abs/2411.16794">arXiv</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="paper-card">
+          <div class="paper-thumb">
+            <img src="images/CataComp.jpg" alt="CataractCompDetect">
+          </div>
+          <div class="paper-info">
+            <div class="venue-badge submission">Under Submission</div>
+            <a class="paper-title" href="https://arxiv.org/pdf/2511.18968">CataractCompDetect: Intraoperative Complication Detection in Cataract Surgery</a>
+            <p class="paper-authors"><strong>Bhuvan Sachdeva</strong>, Sneha Kumari, Rudransh Agarwal, Shalaka Kumaraswamy, Niharika Singri Prasad, Simon Mueller, Raphael Lechtenboehmer, Maximilian W. M. Wintergerst, Thomas Schultz, Kaushik Murali, Mohit Jain</p>
+            <p class="paper-venue">Under submission</p>
+            <div class="paper-links">
+              <a href="https://arxiv.org/pdf/2511.18968">arXiv</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="paper-card">
+          <div class="paper-thumb">
+            <img src="images/Catbot.png" alt="CataractBot">
+          </div>
+          <div class="paper-info">
+            <div class="venue-badge acm">UbiComp 2025</div>
+            <a class="paper-title" href="https://dl.acm.org/doi/pdf/10.1145/3729479">CataractBot: an LLM-powered expert-in-the-loop chatbot for cataract patients</a>
+            <p class="paper-authors">Pragnya Ramjee*, <strong>Bhuvan Sachdeva*</strong>, Satvik Golechha, Shreyas Kulkarni, Geeta Fulari, Kaushik Murali, Mohit Jain</p>
+            <p class="paper-venue">ACM IMWUT / UbiComp 2025</p>
+            <div class="paper-links">
+              <a href="https://github.com/Microsoft/byoeb">GitHub</a>
+              <span class="sep">/</span>
+              <a href="https://www.microsoft.com/en-us/research/publication/cataractbot-an-llm-powered-expert-in-the-loop-chatbot-for-cataract-patients/">project</a>
+              <span class="sep">/</span>
+              <a href="https://arxiv.org/abs/2402.04620">arXiv</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="paper-card">
+          <div class="paper-thumb">
+            <img src="images/Catbot.png" alt="Chatbot deployment">
+          </div>
+          <div class="paper-info">
+            <div class="venue-badge ejo">EJO 2025</div>
+            <a class="paper-title" href="https://arxiv.org/pdf/2409.10354">Learnings from a Large-Scale Deployment of an LLM-Powered Expert-in-the-Loop Healthcare Chatbot</a>
+            <p class="paper-authors"><strong>Bhuvan Sachdeva*</strong>, Pragnya Ramjee*, Geeta Fulari, Kaushik Murali, Mohit Jain</p>
+            <p class="paper-venue">European Journal of Ophthalmology 2025</p>
+            <div class="paper-links">
+              <a href="https://github.com/Microsoft/byoeb">GitHub</a>
+              <span class="sep">/</span>
+              <a href="https://arxiv.org/pdf/2409.10354">arXiv</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="paper-card">
+          <div class="paper-thumb">
+            <img src="images/PhaseRecog.png" alt="PhaseRecog">
+          </div>
+          <div class="paper-info">
+            <div class="venue-badge nature">Sci. Reports 2025</div>
+            <a class="paper-title" href="https://www.nature.com/articles/s41598-025-00303-z">Phase recognition in manual Small-Incision cataract surgery with MS-TCN++ on the novel SICS-105 dataset</a>
+            <p class="paper-authors">Simon Müller, <strong>Bhuvan Sachdeva</strong>, Singri Niharika Prasad, Raphael Lechtenboehmer, Frank G Holz, Robert P Finger, Kaushik Murali, Mohit Jain, Maximilian WM Wintergerst, Thomas Schultz</p>
+            <p class="paper-venue">Nature Scientific Reports 2025</p>
+          </div>
+        </div>
+
+        <div class="paper-card">
+          <div class="paper-thumb">
+            <img src="images/AshaBot.png" alt="AshaBot">
+          </div>
+          <div class="paper-info">
+            <div class="venue-badge chi">CHI 2024</div>
+            <a class="paper-title" href="https://dl.acm.org/doi/pdf/10.1145/3706598.3713680">ASHABot: an LLM-powered chatbot to support the informational needs of community health workers</a>
+            <p class="paper-authors">Pragnya Ramjee, Mehak Chhokar, <strong>Bhuvan Sachdeva</strong>, Mahendra Meena, Hamid Abdullah, Aditya Vashistha, Ruchit Nagar, Mohit Jain</p>
+            <p class="paper-venue">CHI 2024</p>
+            <div class="paper-links">
+              <a href="https://github.com/KhushiBaby/byoeb">GitHub</a>
+              <span class="sep">/</span>
+              <a href="https://www.microsoft.com/en-us/research/publication/ashabot-an-llm-powered-chatbot-to-support-the-informational-needs-of-community-health-workers/">project</a>
+              <span class="sep">/</span>
+              <a href="https://arxiv.org/abs/2409.10913">arXiv</a>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <footer>
+        <p>Website adapted from <a href="https://jonbarron.info/">Jon Barron</a>.</p>
+      </footer>
+
+    </div>
+  </body>
+</html>
