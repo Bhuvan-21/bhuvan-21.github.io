@@ -98,6 +98,10 @@ h1.name {
 .profile-photo {
   flex-shrink: 0;
   width: 240px;
+  aspect-ratio: 4 / 5;
+  align-self: center;
+  overflow: hidden;
+  border-radius: 6px;
 }
 
 .profile-photo img {
@@ -105,7 +109,9 @@ h1.name {
   height: 100%;
   border-radius: 6px;
   object-fit: cover;
-  object-position: center top;
+  object-position: 44% center;
+  transform: scale(1.5);
+  transform-origin: center bottom;
   display: block;
 }
 
