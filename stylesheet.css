@@ -110,7 +110,7 @@ h1.name {
   border-radius: 6px;
   object-fit: cover;
   object-position: 44% center;
-  transform: scale(1.5);
+  transform: scale(1.3);
   transform-origin: center bottom;
   display: block;
 }
