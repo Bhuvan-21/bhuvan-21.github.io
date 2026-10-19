@@ -221,6 +221,7 @@ h1.name {
   color: #5b21b6;
 }
 
+.venue-badge.media,
 .venue-badge.miccai {
   background: #dcfce7;
   color: #166534;
